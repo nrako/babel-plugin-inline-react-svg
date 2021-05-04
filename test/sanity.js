@@ -178,6 +178,28 @@ transformFile('test/fixtures/test-export-default-as.jsx', {
   console.log('test/fixtures/test-export-default-as.jsx', result.code);
 });
 
+transformFile('test/fixtures/test-export-all-as.jsx', {
+  presets: ['airbnb'],
+  plugins: [
+    inlineReactSvgPlugin,
+  ],
+}, (err, result) => {
+  if (err) throw err;
+  console.log('test/fixtures/test-export-all-as.jsx', result.code);
+});
+
+/* TODO: uncomment if babel fixes its parsing for SVGs
+transformFile('test/fixtures/test-commented.jsx', {
+  presets: ['airbnb'],
+  plugins: [
+    [inlineReactSvgPlugin, { svgo: false }],
+  ],
+}, (err, result) => {
+  if (err) throw err;
+  console.log('test/fixtures/test-commented.jsx', result.code);
+});
+*/
+
 /**
  * Alias tests
  */
